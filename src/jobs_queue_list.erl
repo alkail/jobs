@@ -118,7 +118,7 @@ info(length    , #queue{st = L}) ->
 %%
 timedout(#queue{max_time = undefined} = Q) -> {[],Q};
 timedout(#queue{max_time = TO} = Q) ->
-    timedout(TO, Q).
+    timedout(TO * 1000, Q).
 
 timedout(_ , #queue{oldest_job = undefined} = Q) -> {[],Q};
 timedout(TO, #queue{st = L} = Q) ->
